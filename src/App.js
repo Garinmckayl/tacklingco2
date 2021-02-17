@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -13,6 +14,7 @@ import {
   Paper,
   Tabs,
   Tab,
+  Box,
 } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -82,6 +84,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
 export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
@@ -100,6 +128,20 @@ export default function Home() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handletabChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+  function a11yProps(index) {
+    return {
+      id: `full-width-tab-${index}`,
+      'aria-controls': `full-width-tabpanel-${index}`,
+    };
+  }
 
   return (
     <div className={classes.root}>
@@ -159,18 +201,36 @@ export default function Home() {
         <Paper square className={classes.root}>
           <Tabs
             value={value}
-            onChange={handleChange}
+            onChange={handletabChange}
             variant="fullWidth"
             indicatorColor="secondary"
             textColor="secondary"
             aria-label="icon label tabs example"
             centered
           >
-            <Tab icon={<ErrorIcon />} label="Co2" />
-            <Tab icon={<NatureIcon />} label="Algae impact" />
+            <Tab label="Item One" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Item Three" {...a11yProps(2)} />
+            <Tab icon={<ErrorIcon />} label="Co2">tab 1</Tab>
+            <Tab icon={<NatureIcon />} label="Algae impact">tab 2</Tab>
             {/* <Tab icon={<PersonPinIcon />} label="NEARBY" /> */}
           </Tabs>
         </Paper>
+        <Paper
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          Item One
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          Item Two
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          Item Three
+        </TabPanel>
+      </Paper>
         </Typography>
         <Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
