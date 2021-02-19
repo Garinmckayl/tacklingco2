@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+// import Chart from 'chart.js';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
   Drawer,
@@ -15,6 +16,7 @@ import {
   Tabs,
   Tab,
   Box,
+  Container
 } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
@@ -25,6 +27,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ErrorIcon from '@material-ui/icons/Error';
 import NatureIcon from '@material-ui/icons/Nature';
+import logo from './logo.png';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -117,9 +120,9 @@ export default function Home() {
 
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -191,47 +194,14 @@ export default function Home() {
           ))}
         </List>
       </Drawer>
+      <Container fixed>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-        <Paper square className={classes.root}>
-          <Tabs
-            value={value}
-            onChange={handletabChange}
-            variant="fullWidth"
-            indicatorColor="secondary"
-            textColor="secondary"
-            aria-label="icon label tabs example"
-            centered
-          >
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
-            <Tab icon={<ErrorIcon />} label="Co2">tab 1</Tab>
-            <Tab icon={<NatureIcon />} label="Algae impact">tab 2</Tab>
-            {/* <Tab icon={<PersonPinIcon />} label="NEARBY" /> */}
-          </Tabs>
-        </Paper>
-        <Paper
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
-        </TabPanel>
-      </Paper>
-        </Typography>
+        <img src={logo}  alt="logo"/>
         <Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
           facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
@@ -243,7 +213,43 @@ export default function Home() {
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
+        <Typography paragraph>
+        <Paper square className={classes.root}>
+          <Tabs
+            value={value}
+            onChange={handletabChange}
+            variant="fullWidth"
+            indicatorColor="secondary"
+            textColor="secondary"
+            aria-label="icon label tabs example"
+            centered
+          >
+            <Tab label="Co2 Emission" icon={<ErrorIcon />} label="Co2" {...a11yProps(0)} />
+            <Tab label="Algae Impact" icon={<NatureIcon />} label="Algae impact" {...a11yProps(1)} />
+            {/* <Tab icon={<ErrorIcon />} label="Co2">tab 1</Tab>
+            <Tab icon={<NatureIcon />} label="Algae impact">tab 2</Tab> */}
+            {/* <Tab icon={<PersonPinIcon />} label="NEARBY" /> */}
+          </Tabs>
+        </Paper>
+        <Paper
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel value={value} index={0} dir={theme.direction}>
+        tincidunt ornare massa eget egestas purus viverra accumsan in. In
+          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
+          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
+          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
+          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          cewcfewrfcewrfkewrpo
+        </TabPanel>
+      </Paper>
+        </Typography>
       </main>
+      </Container>
     </div>
   );
 }
