@@ -310,15 +310,18 @@ export default function Home() {
     </LineChart>
 
         <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
+        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
+        chlorella vulgaris
+        </Typography>
+        <Typography variant="h2" component="h2" gutterBottom align="center">
+          Why Algae ?
+        </Typography>
+        <Typography paragraph>
+        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
+        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
+        chlorella vulgaris
+       The reactor uses a specific strain of algae called chlorella vulgaris, which is claimed to soak up much more CO2 than any other plant.
         </Typography>
         <Typography paragraph>
         <Paper square className={classes.root}>
@@ -333,9 +336,6 @@ export default function Home() {
           >
             <Tab label="Co2 Emission" icon={<ErrorIcon />} label="Co2" {...a11yProps(0)} />
             <Tab label="Algae Impact" icon={<NatureIcon />} label="Algae impact" {...a11yProps(1)} />
-            {/* <Tab icon={<ErrorIcon />} label="Co2">tab 1</Tab>
-            <Tab icon={<NatureIcon />} label="Algae impact">tab 2</Tab> */}
-            {/* <Tab icon={<PersonPinIcon />} label="NEARBY" /> */}
           </Tabs>
         </Paper>
         <Paper
@@ -351,7 +351,9 @@ export default function Home() {
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          cewcfewrfcewrfkewrpo
+        Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
+          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
+          accumsan lacus vel facilisis. Nulla pos
         </TabPanel>
       </Paper>
         </Typography>
