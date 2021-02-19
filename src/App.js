@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import axios from 'axios';
 import {
   Drawer,
   CssBaseline,
@@ -163,6 +164,37 @@ TabPanel.propTypes = {
 
 
 export default function Home() {
+  const [co2Data, setco2Data] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const source = axios.CancelToken.source();
+  const co2Options = {
+    method: 'GET',
+    url: `https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.json`,
+    cancelToken: source.token,
+  };
+  useEffect(() => {
+    setLoading(true);
+    const getCo2Data = async () =>
+      await axios
+        .request(co2Options)
+        .then((response) => {
+          setLoading(false);
+          setco2Data(response.data.result);
+          console.log(co2Data, 'Co2 data')
+        })
+        .catch((error) => {
+          setLoading(false);
+          if (axios.isCancel(error)) {
+          } else {
+            throw error;
+          }
+        });
+        getCo2Data();
+    return () => {
+      source.cancel();
+    };
+  }, []);
+  
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -251,7 +283,7 @@ export default function Home() {
       >
         <div className={classes.drawerHeader} />
         <img src={logo}  alt="logo"/>
-        
+
         <LineChart
       width={500}
       height={300}
