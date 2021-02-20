@@ -318,10 +318,12 @@ export default function Home() {
           Why Algae ?
         </Typography>
         <Typography paragraph>
-        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
-        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
-        chlorella vulgaris
-       The reactor uses a specific strain of algae called chlorella vulgaris, which is claimed to soak up much more CO2 than any other plant.
+        Algae are <a href="https://en.wikipedia.org/wiki/Photosynthesis">photosynthetic</a> organic organisms.
+        Most are aquatic. Algae "absorbs" the carbon as more Algae. Algae can burn-through more carbon dioxide than trees since
+         it can <b>cover more surface zone, develop quicker(grow faster) and be more easily controlled</b>.
+        CO2 is one of the fundamental segments needed to develop Algae, alongside daylight, water, and supplements. 
+        A specific strain of algae called <b>chlorella vulgaris</b> is especially extremely effective
+         when it comes to absorbing co2, it can soak up much more CO2 than any other plant.
         </Typography>
         <Typography paragraph>
         <Paper square className={classes.root}>
