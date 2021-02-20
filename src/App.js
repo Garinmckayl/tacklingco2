@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -29,6 +36,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ErrorIcon from '@material-ui/icons/Error';
 import NatureIcon from '@material-ui/icons/Nature';
 import logo from './logo.png';
+import Co2 from './pages/co2';
+import HomePage from './pages/home';
+
+const history = createBrowserHistory();
 
 const data = [
   {
@@ -200,6 +211,7 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
 
   const [value, setValue] = React.useState(0);
+  const [title, setTitle] = useState("Home");
 
   // const handleChange = (event, newValue) => {
   //   setValue(newValue);
@@ -220,6 +232,13 @@ export default function Home() {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
+  const onItemClick = title => () => {
+    setTitle(title);
+    // setDrawer(variant === "temporary" ? false : drawer);
+    // setDrawer(!drawer);
+  };
+
   function a11yProps(index) {
     return {
       id: `full-width-tab-${index}`,
@@ -251,6 +270,7 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
+      <Router history={history}>
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -267,20 +287,52 @@ export default function Home() {
         </div>
         <Divider />
         <List>
-          {['Co2 Emmision', 'Algea Effect'].map((text, index) => (
+          <ListItem 
+          button 
+          component={Link} 
+          key="Co2 Emission" 
+          to="co2"
+          onClick={onItemClick("Home")}
+          >
+             <ListItemIcon><ErrorIcon /></ListItemIcon>
+             {/* <Link to="co2">Co2 Emission</Link> */}
+              <ListItemText primary="Co2 Emission" />
+          </ListItem>
+          <ListItem button key="Algae Effect">
+             <ListItemIcon><NatureIcon /></ListItemIcon>
+              <ListItemText primary="Algae Effect" />
+          </ListItem>
+          <Switch>
+          <Route exact path="/" component={HomePage}>
+            <HomePage />
+          </Route>
+          <Route path="/co2" component={Co2}>
+            <Co2 />
+          </Route>
+          {/* <Route path="/dashboard">
+          </Route> */}
+        </Switch>
+        {/* <Router>
+          {['Co2 Emmision', 'Algae Effect'].map((text, index) => (
             <ListItem button key={text}>
+              <Link to="/">{text}</Link>
               <ListItemIcon>{index % 2 === 0 ? <ErrorIcon /> : <NatureIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
+          </Router> */}
         </List>
       </Drawer>
+      </Router>
+
       <Container fixed>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
+        <Route exact path="/" component={Home} />
+        <Route path="/co2" component={Co2} />
         <div className={classes.drawerHeader} />
         <img src={logo}  alt="logo"/>
 
