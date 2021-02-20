@@ -323,6 +323,8 @@ export default function Home() {
           </Router> */}
         </List>
       </Drawer>
+      <Route exact path="/" component={Home} />
+        <Route path="/co2" component={Co2} />
       </Router>
 
       <Container fixed>
@@ -331,8 +333,6 @@ export default function Home() {
           [classes.contentShift]: open,
         })}
       >
-        <Route exact path="/" component={Home} />
-        <Route path="/co2" component={Co2} />
         <div className={classes.drawerHeader} />
         <img src={logo}  alt="logo"/>
 
