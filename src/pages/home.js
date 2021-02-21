@@ -91,7 +91,6 @@ import logo from '../logo.png';
       display: 'flex',
     },
     logo: {
-      width: 700,
       margin: 'auto',
       display: 'block',
     }
