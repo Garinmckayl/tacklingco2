@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types';
 import {
     Drawer,
@@ -74,61 +74,27 @@ import logo from '../logo.png';
     },
   ];
 
+ function fetchCsv() {
+    return fetch('../data/co2.csv').then(function (response) {
+        let reader = response.body.getReader();
+        let decoder = new TextDecoder('utf-8');
+
+        return reader.read().then(function (result) {
+            console.log(result.value)
+            return decoder.decode(result.value);
+        });
+    });
+}
+
   const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
-    appBar: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    // appBarShift: {
-    //   width: `calc(100% - ${drawerWidth}px)`,
-    //   marginLeft: drawerWidth,
-    //   transition: theme.transitions.create(['margin', 'width'], {
-    //     easing: theme.transitions.easing.easeOut,
-    //     duration: theme.transitions.duration.enteringScreen,
-    //   }),
-    // },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    hide: {
-      display: 'none',
-    },
-    // drawer: {
-    //   width: drawerWidth,
-    //   flexShrink: 0,
-    // },
-    // drawerPaper: {
-    //   width: drawerWidth,
-    // },
-    // drawerHeader: {
-    //   display: 'flex',
-    //   alignItems: 'center',
-    //   padding: theme.spacing(0, 1),
-    //   // necessary for content to be below app bar
-    //   ...theme.mixins.toolbar,
-    //   justifyContent: 'flex-end',
-    // },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    //   marginLeft: -drawerWidth,
-    },
-    contentShift: {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    },
+    logo: {
+      width: 700,
+      margin: 'auto',
+      display: 'block',
+    }
   }));
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -164,14 +130,18 @@ export default function HomePage() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(0);
 
-    const handletabChange = (event, newValue) => {
-        setValue(newValue);
-      };
+    useEffect(() => {
+      // setLoading(true);
+      fetchCsv();
+      
+    }, []);
 
       const handleChangeIndex = (index) => {
         setValue(index);
       };
-
+      const handletabChange = (event, newValue) => {
+        setValue(newValue);
+      };
       function a11yProps(index) {
         return {
           id: `full-width-tab-${index}`,
@@ -187,7 +157,7 @@ export default function HomePage() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <img src={logo}  alt="logo"/>
+        <img src={logo}  alt="logo" className={classes.logo}/>
 
         <LineChart
       width={500}
