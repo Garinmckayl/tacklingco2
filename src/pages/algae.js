@@ -35,53 +35,45 @@ const useStyles = makeStyles((theme) => ({
     logo: {
       margin: 'auto',
       display: 'block',
-    }
+    },
+    lineChart: {
+        margin: 'auto',
+      }
   }));
 
-const data = [
+  const data = [
     {
-      name: 'Page A',
+      name: '1900',
       uv: 4000,
-      pv: 2400,
+      world: 2.3,
       amt: 2400,
     },
     {
-      name: 'Page B',
+      name: '1950',
       uv: 3000,
-      pv: 1398,
+      world: 14,
       amt: 2210,
     },
     {
-      name: 'Page C',
+      name: '1960',
+      uv: 3000,
+      world: 11,
+      amt: 2210,
+    },
+    {
+      name: '2000',
       uv: 2000,
-      pv: 9800,
+      world: 45,
       amt: 2290,
     },
     {
-      name: 'Page D',
+      name: '2020',
       uv: 2780,
-      pv: 3908,
+      world: 70,
       amt: 2000,
     },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
   ];
+
 export default function Algae() {
     const classes  = useStyles();
     return (
@@ -109,6 +101,7 @@ export default function Algae() {
           <Typography paragraph>
           <Paper square>
                 <LineChart
+            className={classes.lineChart}
             width={500}
             height={300}
             data={data}
@@ -126,11 +119,11 @@ export default function Algae() {
             <Legend />
             <Line
                 type="monotone"
-                dataKey="pv"
+                dataKey="world"
                 stroke="#8884d8"
                 activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
             </LineChart>
           </Paper>
 

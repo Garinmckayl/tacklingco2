@@ -36,7 +36,10 @@ const useStyles = makeStyles((theme) => ({
     logo: {
       margin: 'auto',
       display: 'block',
-    }
+    },
+    lineChart: {
+        margin: 'auto',
+      }
   }));
 
 const data = [
@@ -92,6 +95,7 @@ export default function Co2() {
 <img src={logo}  alt="logo" className={classes.logo}/>
   
           <LineChart
+        className={classes.lineChart}
         width={500}
         height={300}
         data={data}

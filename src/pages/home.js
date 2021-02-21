@@ -27,64 +27,53 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import logo from '../logo.png';
   import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Autorenew } from '@material-ui/icons';
 
 
   const data = [
     {
-      name: 'Page A',
+      name: '1900',
       uv: 4000,
-      pv: 2400,
+      world: 2.3,
       amt: 2400,
     },
     {
-      name: 'Page B',
+      name: '1950',
       uv: 3000,
-      pv: 1398,
+      world: 14,
       amt: 2210,
     },
     {
-      name: 'Page C',
+      name: '1960',
+      uv: 3000,
+      world: 11,
+      amt: 2210,
+    },
+    {
+      name: '2000',
       uv: 2000,
-      pv: 9800,
+      world: 45,
       amt: 2290,
     },
     {
-      name: 'Page D',
+      name: '2020',
       uv: 2780,
-      pv: 3908,
+      world: 70,
       amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
     },
   ];
 
- function fetchCsv() {
-    return fetch('../data/co2.csv').then(function (response) {
-        let reader = response.body.getReader();
-        let decoder = new TextDecoder('utf-8');
+//  function fetchCsv() {
+//     return fetch('../data/co2.csv').then(function (response) {
+//         let reader = response.body.getReader();
+//         let decoder = new TextDecoder('utf-8');
 
-        return reader.read().then(function (result) {
-            console.log(result.value)
-            return decoder.decode(result.value);
-        });
-    });
-}
+//         return reader.read().then(function (result) {
+//             console.log(result.value)
+//             return decoder.decode(result.value);
+//         });
+//     });
+// }
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -93,6 +82,9 @@ import logo from '../logo.png';
     logo: {
       margin: 'auto',
       display: 'block',
+    },
+    lineChart: {
+      margin: 'auto',
     }
   }));
 function TabPanel(props) {
@@ -129,11 +121,11 @@ export default function HomePage() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(0);
 
-    useEffect(() => {
-      // setLoading(true);
-      fetchCsv();
+    // useEffect(() => {
+    //   // setLoading(true);
+    //   fetchCsv();
       
-    }, []);
+    // }, []);
 
       const handleChangeIndex = (index) => {
         setValue(index);
@@ -157,8 +149,9 @@ export default function HomePage() {
       >
         <div className={classes.drawerHeader} />
         <img src={logo}  alt="logo" className={classes.logo}/>
-
+        <Paper square>
         <LineChart
+      className={classes.lineChart}
       width={500}
       height={300}
       data={data}
@@ -176,13 +169,13 @@ export default function HomePage() {
       <Legend />
       <Line
         type="monotone"
-        dataKey="pv"
+        dataKey="world"
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
     </LineChart>
-
+ </Paper>
         <Typography paragraph>
         CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
         Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
