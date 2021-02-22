@@ -28,40 +28,8 @@ import clsx from 'clsx';
 import logo from '../logo.png';
   import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Autorenew } from '@material-ui/icons';
+import {co2GlobalData} from '../data/co2GlobalData';
 
-
-  const data = [
-    {
-      name: '1900',
-      uv: 4000,
-      world: 2.3,
-      amt: 2400,
-    },
-    {
-      name: '1950',
-      uv: 3000,
-      world: 14,
-      amt: 2210,
-    },
-    {
-      name: '1960',
-      uv: 3000,
-      world: 11,
-      amt: 2210,
-    },
-    {
-      name: '2000',
-      uv: 2000,
-      world: 45,
-      amt: 2290,
-    },
-    {
-      name: '2020',
-      uv: 2780,
-      world: 70,
-      amt: 2000,
-    },
-  ];
 
 //  function fetchCsv() {
 //     return fetch('../data/co2.csv').then(function (response) {
@@ -85,6 +53,10 @@ import { Autorenew } from '@material-ui/icons';
     },
     lineChart: {
       margin: 'auto',
+    },
+    headingtext: {
+      textAlign: 'center',
+      color: 'rgb(16 152 107)',
     }
   }));
 function TabPanel(props) {
@@ -121,11 +93,6 @@ export default function HomePage() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(0);
 
-    // useEffect(() => {
-    //   // setLoading(true);
-    //   fetchCsv();
-      
-    // }, []);
 
       const handleChangeIndex = (index) => {
         setValue(index);
@@ -150,11 +117,14 @@ export default function HomePage() {
         <div className={classes.drawerHeader} />
         <img src={logo}  alt="logo" className={classes.logo}/>
         <Paper square>
+        <Typography variant="h4" className={classes.headingtext}>
+        CO2 Emissions from 1960 - 2020
+      </Typography>
         <LineChart
       className={classes.lineChart}
-      width={500}
-      height={300}
-      data={data}
+      width={700}
+      height={400}
+      data={co2GlobalData}
       margin={{
         top: 5,
         right: 30,
@@ -173,7 +143,6 @@ export default function HomePage() {
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
     </LineChart>
  </Paper>
         <Typography paragraph>
