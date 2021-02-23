@@ -15,20 +15,15 @@ import {
     Box,
     Container
   } from '@material-ui/core';
-  import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import ErrorIcon from '@material-ui/icons/Error';
 import NatureIcon from '@material-ui/icons/Nature';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import logo from '../logo.png';
-  import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+  import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { Autorenew } from '@material-ui/icons';
 import {co2GlobalData} from '../data/co2GlobalData';
+import {co2ByCountry} from '../data/co2ByCountry';
 
 
 //  function fetchCsv() {
@@ -57,6 +52,10 @@ import {co2GlobalData} from '../data/co2GlobalData';
     headingtext: {
       textAlign: 'center',
       color: 'rgb(16 152 107)',
+    },
+    headh4: {
+      padding: 20,
+      color: 'rgb(26, 132, 97)',
     }
   }));
 function TabPanel(props) {
@@ -108,17 +107,17 @@ export default function HomePage() {
       }
 
     return (
-              <Container fixed>
+              
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.drawerHeader} />
-        <img src={logo}  alt="logo" className={classes.logo}/>
-        <Paper square>
-        <Typography variant="h4" className={classes.headingtext}>
-        CO2 Emissions from 1960 - 2020
+                <img src={logo}  alt="logo" className={classes.logo}/>
+
+  <Paper square style={{ marginBottom: '500' }} elevation={3}>
+      <Typography variant="h5" className={classes.headingtext}>
+        CO2 Emissions from 1960 - 2020 in Billion Tons
       </Typography>
         <LineChart
       className={classes.lineChart}
@@ -145,21 +144,68 @@ export default function HomePage() {
       />
     </LineChart>
  </Paper>
-        <Typography paragraph>
-        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
-        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
-        chlorella vulgaris
+    <Container maxWidth="sm">
+        <div className={classes.drawerHeader} />
+        <Typography variant="h4" className={classes.headh4}>
+        CO2 Emissions 
         </Typography>
+        <Typography paragraph>
+        For hundreds of years, extremely heavy usage of fossil fuels by humans has polluted Earth’s atmosphere with greenhouse gases. 
+        The most commonly emitted greenhouse gas, carbon dioxide, tends to be the primary focus of global warming treatments. 
+        Carbon dioxide (CO2) is a colorless gas that is released in great quantities when fossil fuels are burned. 
+        When the carbon dioxide concentration goes up, temperature goes up. When the carbon dioxide concentration goes down, temperature goes down.
+        Greenhouse gases trap heat by absorbing infrared radiation that would otherwise leave Earth’s atmosphere. This increases the overall temperature of the earth,
+         which leads to the melting of polar ice caps, rising sea levels, and strengthening of tropical storm systems, among many other tremendous environmental effects.
+         ,including worsening natural disasters like floods, heatwaves, and droughts. 
+        "In a business-as-usual scenario, where little progress is made in the development and implementation of global climate policies, global greenhouse gas emissions could rise to up to 87 Gt CO2 by 2050, way beyond safe limits,” Achim Steiner, UN Under-Secretary-General and Executive Director of UNEP.
+        </Typography>
+    <Paper style={{ marginBottom: '500' }} elevation={3}>
+      <Typography variant="h4" className={classes.headingtext}>
+        Biggest Co2 Emittors billion ton
+      </Typography>
+    <BarChart
+          width={500}
+          height={300}
+          data={co2ByCountry}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="C02" fill="#8884d8" />
+        </BarChart>
+ </Paper>
         <Typography variant="h2" component="h2" gutterBottom align="center">
           Why Algae ?
         </Typography>
         <Typography paragraph>
-        Algae are <a href="https://en.wikipedia.org/wiki/Photosynthesis">photosynthetic</a> organic organisms.
-        Most are aquatic. Algae "absorbs" the carbon as more Algae. Algae can burn-through more carbon dioxide than trees since
-         it can <b>cover more surface zone, develop quicker(grow faster) and be more easily controlled</b>.
-        CO2 is one of the fundamental segments needed to develop Algae, alongside daylight, water, and supplements. 
-        A specific strain of algae called <b>chlorella vulgaris</b> is especially extremely effective
-         when it comes to absorbing co2, it can soak up much more CO2 than any other plant.
+        The more emissions are reduced, the more carbon dioxide we need to remove from the atmosphere (this is called sequestration). 
+        Currently, forests have the biggest potential in the sequestration of CO2, but the future holds
+        significant prospects for algae as well.
+        WHY? 
+        </Typography>
+        <Typography variant="h4" align="center">
+        Open-ocean algal blooms (algae-based carbon sequestration) 
+        </Typography>
+        <Typography>
+        Algae can grow 10–50 times faster than terrestrial plants. The major difference between land plants and algae is the presence/absence of roots, shoots, and leaves that represent sinks for energy. As a result of a faster growth rate, the CO2 removal efficiency of Algae is on average ten times higher than that of terrestrial plants. 
+
+        Using Photosynthesis algae remove carbon dioxide from the atmosphere and turn it into biomass and oxygen.
+
+        raw algal biomass can be harvested and used as a biofuel, which can provide a greener alternative to fossil fuel usage.
+        Algae can even substitute other fossil fuels
+        (in our calculations this would be diesel oil) with a more positive effect on the CO2 BALANCE. 
+
+        This way is the most cost-effective sequestration process because this method produces the most algae in the least amount of time. Additionally, this method removes the most carbon dioxide from the atmosphere. 
+        The amount of CO2 removed is directly proportional to the number of algae undergoing photosynthesis. So the bigger the scale the larger Co2 removed. 
+        There are many benefits to open-ocean algal blooms. There is no shortage of space on the surface of the ocean, so, hypothetically, there is a seemingly infinite amount of algal mass that can be cultivated this way. This technique is also very cost-efficient
         </Typography>
         <Typography paragraph>
         <Paper square className={classes.root}>
@@ -182,20 +228,33 @@ export default function HomePage() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+        <BarChart
+          width={500}
+          height={300}
+          data={co2ByCountry}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="C02" fill="#8884d8" />
+        </BarChart>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla pos
+        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
+        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
         </TabPanel>
       </Paper>
         </Typography>
+        </Container>
       </main>
-      </Container>
+     
     )
 }

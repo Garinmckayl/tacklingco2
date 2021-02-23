@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Algae() {
     const classes  = useStyles();
     return (
-        <Container fixed>
+        <Container maxWidth="sm">
 
 <img src={logo}  alt="logo" className={classes.logo}/>
 
@@ -87,23 +87,44 @@ export default function Algae() {
           Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
           chlorella vulgaris
           </Typography>
-          <Typography variant="h2" component="h2" gutterBottom align="center">
-            Why Algae ?
+          <Typography variant="h3" gutterBottom align="center">
+          Diatom Algae
           </Typography>
-          <Typography paragraph>
-          Algae are <a href="https://en.wikipedia.org/wiki/Photosynthesis">photosynthetic</a> organic organisms.
-          Most are aquatic. Algae "absorbs" the carbon as more Algae. Algae can burn-through more carbon dioxide than trees since
-           it can <b>cover more surface zone, develop quicker(grow faster) and be more easily controlled</b>.
-          CO2 is one of the fundamental segments needed to develop Algae, alongside daylight, water, and supplements. 
-          A specific strain of algae called <b>chlorella vulgaris</b> is especially extremely effective
-           when it comes to absorbing co2, it can soak up much more CO2 than any other plant.
+          <Typography paragraph>      
+          One good contestant can be diatom algae, diatom algae are good because it is the best natural food for zooplankton, krill, and fish. 
+          Growing diatoms can prevent eutrophication and bloom of the harmful algae. 
+          Diatoms are silicon-based algae (phytoplankton) that can out-compete the growth of other types of algae, including those toxic forms that cause HAB's. As well as preventing toxic algae from growing, 
+          Diatoms are also good as they provide nutrients for fish whilst also increasing oxygen in the water.
+          Diatoms are among the most important and prolific microscopic sea organisms and serve directly or indirectly as food for many animals.
           </Typography>
+
+          <Typography variant="h3" gutterBottom align="center">
+          Chlorella Vulgaris
+          </Typography>
+          <Typography paragraph>      
+          Chlorella Vulgaris are Algae characterized by rapid growth, tolerance to stress factors, and tolerance against high concentrations of CO2, which indicates its effective accumulation and utilization
+          In the case of cultures of Chlorella species, the total amount of recycled carbon dioxide during 10 days of culture was 
+          5.1 and 5.2 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. In the case of cultures of Nannochloropsis species, the total amount of recycled carbon dioxide was higher, 
+          namely 6.3 and 6.9 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. (source:  https://link.springer.com/article/10.1007/s12010-016-2062-3) 
+          </Typography>
+
+          <Typography variant="h2" gutterBottom align="center">
+          Bioreactor
+          </Typography>
+          <Typography paragraph>      
+          Artificial growth chambers that have controlled temperature, pH, and nutrient levels that make for optimal growth rates of algae 
+          The huge disadvantage to this method is that the cost of building and maintaining photobioreactors is too high and not cost-effective. 
+          However, this method of algae-based carbon sequestration eliminates eutrophication and water contamination risks that are common in harmful algal blooms. 
+          AI-powered Algae bioreactors are up to 400 times more efficient than a tree at removing CO2 from the atmosphere. 
+          So it is promising for the future. 
+          </Typography>
+
           <Typography paragraph>
           <Paper square>
                 <LineChart
             className={classes.lineChart}
             width={500}
-            height={300}
+            height={300}s
             data={data}
             margin={{
                 top: 5,

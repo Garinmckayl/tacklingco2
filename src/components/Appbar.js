@@ -22,7 +22,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import NatureIcon from '@material-ui/icons/Nature';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import CloseIcon from '@material-ui/icons/Close';
-
+import HomeIcon from '@material-ui/icons/Home';
 
 import Home from "../pages/home";
 import Co2 from "../pages/co2";
@@ -126,6 +126,7 @@ const MyDrawer = withStyles(styles)(
             to="/"
             onClick={onItemClick("Home")}
           >
+            <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText>Home</ListItemText>
           </ListItem>
           <ListItem
