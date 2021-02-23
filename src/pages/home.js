@@ -1,14 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 import {
-    Drawer,
-    CssBaseline,
-    AppBar,
-    Toolbar,
-    List,
     Typography,
-    Divider,
-    IconButton,
     Paper,
     Tabs,
     Tab,
@@ -21,7 +14,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import logo from '../logo.png';
   import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { Autorenew } from '@material-ui/icons';
 import {co2GlobalData} from '../data/co2GlobalData';
 import {co2ByCountry} from '../data/co2ByCountry';
 
@@ -248,10 +240,11 @@ export default function HomePage() {
         </BarChart>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        CO2 is one of the essential components required to grow algae, along with sunlight, water and nutrients.
-        Algae can consume more carbon dioxide than trees because it can cover more surface area, grow faster, and be more easily controlled by bioreactors, given its relative size.
-        </TabPanel>
-      </Paper>
+        In the case of cultures of Chlorella species, the total amount of recycled carbon dioxide during 10 days of culture was 
+          5.1 and 5.2 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. In the case of cultures of Nannochloropsis species, the total amount of recycled carbon dioxide was higher, 
+          namely 6.3 and 6.9 gCO2/l for CO2 concentrations of 4 and 8 %, respectively.
+       </TabPanel>
+       </Paper>
         </Typography>
         </Container>
       </main>

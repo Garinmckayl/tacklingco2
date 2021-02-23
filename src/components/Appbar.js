@@ -4,30 +4,32 @@ import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Dialog from '@material-ui/core/Dialog';
-import Slide from '@material-ui/core/Slide';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from "@material-ui/core/ListItemText";
-import IconButton from "@material-ui/core/IconButton";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Drawer,
+  Button,
+  List,
+  ListItem,
+  Dialog,
+  Slide,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  IconButton,
+  Menu,
+  Divider,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import Divider from '@material-ui/core/Divider';
 import ErrorIcon from '@material-ui/icons/Error';
 import NatureIcon from '@material-ui/icons/Nature';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import CloseIcon from '@material-ui/icons/Close';
 import HomeIcon from '@material-ui/icons/Home';
-
 import Home from "../pages/home";
 import Co2 from "../pages/co2";
 import Algae from "../pages/algae";
-import { ColorLensTwoTone } from "@material-ui/icons";
 
 const drawerWidth = 240;
 const history = createBrowserHistory();
@@ -93,9 +95,20 @@ const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick, onClick, on
             </Typography>
           </Toolbar>
         </AppBar>
+        <Paper elevation={3}>
         <Typography className={classes.aboutp} gutterBottom align="center">
-        My Name Is Nathaniel, This project is intended to help people realize the impact of CO2 emission on our planet, And how we can tackle this very problem using Algae.
+        My Name Is Nathaniel, I live in Ethiopia, I had the idea of building something meaningful to in some way help mitigate co2 emissions for a long time and I was procrastinating, 
+        but last week when I saw a challenge from the TheRelicans community to build something useful to help with climate change, 
+        I realize it is the time to work on my dream and get people to notice this type of solution. This project is intended to help people realize the impact of CO2 emission on our planet, 
+        And how we can tackle this very problem using cost and energy effective way(Algae).
+        <IconButton href="https://github.com/Garinmckayl" target="blank"  color="inherit">
+                <GitHubIcon />
+        </IconButton>
+        <Button href="https://dev.to/zeshama" target="blank"  color="inherit">
+          Dev.to
+        </Button>
         </Typography>
+        </Paper>
       </Dialog>
       </Toolbar>
     </AppBar>

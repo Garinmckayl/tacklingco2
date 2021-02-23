@@ -1,32 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import {
-    Drawer,
-    CssBaseline,
-    AppBar,
-    Toolbar,
-    List,
     Typography,
-    Divider,
-    IconButton,
     Paper,
-    Tabs,
-    Tab,
-    Box,
     Container
   } from '@material-ui/core';
-  import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ErrorIcon from '@material-ui/icons/Error';
-import NatureIcon from '@material-ui/icons/Nature';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import logo from '../logo.png';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import diatome from '../diatome.jpeg';
+import bioreactor from '../bioreactor.png';
+import Chlorellavulgaris from '../Chlorellavulgaris.jpg';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
     },
     lineChart: {
         margin: 'auto',
-      }
+      },
+    images: {
+      width: 500,
+    }
   }));
 
   const data = [
@@ -90,6 +77,7 @@ export default function Algae() {
           <Typography variant="h3" gutterBottom align="center">
           Diatom Algae
           </Typography>
+          <img src={diatome}  alt="diatome" className={classes.images}/>
           <Typography paragraph>      
           One good contestant can be diatom algae, diatom algae are good because it is the best natural food for zooplankton, krill, and fish. 
           Growing diatoms can prevent eutrophication and bloom of the harmful algae. 
@@ -101,6 +89,7 @@ export default function Algae() {
           <Typography variant="h3" gutterBottom align="center">
           Chlorella Vulgaris
           </Typography>
+          <img src={Chlorellavulgaris}  alt="Chlorella-vulgaris" className={classes.images}/>
           <Typography paragraph>      
           Chlorella Vulgaris are Algae characterized by rapid growth, tolerance to stress factors, and tolerance against high concentrations of CO2, which indicates its effective accumulation and utilization
           In the case of cultures of Chlorella species, the total amount of recycled carbon dioxide during 10 days of culture was 
@@ -111,6 +100,7 @@ export default function Algae() {
           <Typography variant="h2" gutterBottom align="center">
           Bioreactor
           </Typography>
+          <img src={bioreactor}  alt="bioreactor" className={classes.images}/>
           <Typography paragraph>      
           Artificial growth chambers that have controlled temperature, pH, and nutrient levels that make for optimal growth rates of algae 
           The huge disadvantage to this method is that the cost of building and maintaining photobioreactors is too high and not cost-effective. 
