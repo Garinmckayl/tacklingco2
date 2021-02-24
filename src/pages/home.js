@@ -16,6 +16,8 @@ import logo from '../logo.png';
   import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import {co2GlobalData} from '../data/co2GlobalData';
 import {co2ByCountry} from '../data/co2ByCountry';
+import {forecast} from '../data/forecast'
+import {foreCastAlgae} from '../data/foreCastAlgae'
 
 
 //  function fetchCsv() {
@@ -124,10 +126,10 @@ export default function HomePage() {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="name" stroke="#8884d8"/>
       <YAxis />
       <Tooltip />
-      <Legend />
+      <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }}/>
       <Line
         type="monotone"
         dataKey="world"
@@ -135,6 +137,9 @@ export default function HomePage() {
         activeDot={{ r: 8 }}
       />
     </LineChart>
+    <Typography align="center">
+        Source <a href="https://data.worldbank.org/indicator/EN.ATM.CO2E.PC">World Bank</a>
+    </Typography>
  </Paper>
     <Container maxWidth="sm">
         <div className={classes.drawerHeader} />
@@ -153,7 +158,7 @@ export default function HomePage() {
         </Typography>
     <Paper style={{ marginBottom: '500' }} elevation={3}>
       <Typography variant="h4" className={classes.headingtext}>
-        Biggest Co2 Emittors billion ton
+        Biggest Co2 Emitters billion ton
       </Typography>
     <BarChart
           width={500}
@@ -173,6 +178,9 @@ export default function HomePage() {
           <Legend />
           <Bar dataKey="C02" fill="#8884d8" />
         </BarChart>
+        <Typography align="center">
+            Source <a href="https://en.wikipedia.org/wiki/List_of_countries_by_carbon_dioxide_emissions">Wikipedia</a>
+        </Typography>
  </Paper>
         <Typography variant="h2" component="h2" gutterBottom align="center">
           Why Algae ?
@@ -220,29 +228,72 @@ export default function HomePage() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        <BarChart
-          width={500}
-          height={300}
-          data={co2ByCountry}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="C02" fill="#8884d8" />
-        </BarChart>
+            Forecast of carbon dioxide emissions worldwide from 2018 to 2050 in billion metric tons.
+    <LineChart
+      className={classes.lineChart}
+      width={500}
+      height={300}
+      data={forecast}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="world"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+    </LineChart>
+    <Typography align="center">
+        Source <a href="https://www.statista.com/statistics/263980/forecast-of-global-carbon-dioxide-emissions/#:~:text=Based%20on%20a%20business%2Das,economy%20and%20extreme%20weather%20conditions.">statista</a>
+    </Typography>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         In the case of cultures of Chlorella species, the total amount of recycled carbon dioxide during 10 days of culture was 
           5.1 and 5.2 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. In the case of cultures of Nannochloropsis species, the total amount of recycled carbon dioxide was higher, 
           namely 6.3 and 6.9 gCO2/l for CO2 concentrations of 4 and 8 %, respectively.
+
+    <LineChart
+      className={classes.lineChart}
+      width={500}
+      height={300}
+      data={foreCastAlgae}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="world"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+            <Line
+        type="monotone"
+        dataKey="algae"
+        stroke="#139167"
+      />
+    </LineChart>
+    <Typography align="center">
+        Source <a href="https://www.statista.com/statistics/263980/forecast-of-global-carbon-dioxide-emissions/#:~:text=Based%20on%20a%20business%2Das,economy%20and%20extreme%20weather%20conditions.">statista</a>
+    </Typography>
        </TabPanel>
        </Paper>
         </Typography>

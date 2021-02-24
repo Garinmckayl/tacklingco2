@@ -79,7 +79,7 @@ export default function Algae() {
           </Typography>
           <img src={diatome}  alt="diatome" className={classes.images}/>
           <Typography paragraph>      
-          One good contestant can be diatom algae, diatom algae are good because it is the best natural food for zooplankton, krill, and fish. 
+          One good contestant can be diatom algae, <a href="https://en.wikipedia.org/wiki/Diatom" target="blank">diatom algae</a> are good because it is the best natural food for zooplankton, krill, and fish. 
           Growing diatoms can prevent eutrophication and bloom of the harmful algae. 
           Diatoms are silicon-based algae (phytoplankton) that can out-compete the growth of other types of algae, including those toxic forms that cause HAB's. As well as preventing toxic algae from growing, 
           Diatoms are also good as they provide nutrients for fish whilst also increasing oxygen in the water.
@@ -91,14 +91,14 @@ export default function Algae() {
           </Typography>
           <img src={Chlorellavulgaris}  alt="Chlorella-vulgaris" className={classes.images}/>
           <Typography paragraph>      
-          Chlorella Vulgaris are Algae characterized by rapid growth, tolerance to stress factors, and tolerance against high concentrations of CO2, which indicates its effective accumulation and utilization
+          <a href="https://en.wikipedia.org/wiki/Chlorella_vulgaris" target="blank">Chlorella Vulgaris</a> are Algae characterized by rapid growth, tolerance to stress factors, and tolerance against high concentrations of CO2, which indicates its effective accumulation and utilization
           In the case of cultures of Chlorella species, the total amount of recycled carbon dioxide during 10 days of culture was 
           5.1 and 5.2 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. In the case of cultures of Nannochloropsis species, the total amount of recycled carbon dioxide was higher, 
           namely 6.3 and 6.9 gCO2/l for CO2 concentrations of 4 and 8 %, respectively. (source:  https://link.springer.com/article/10.1007/s12010-016-2062-3) 
           </Typography>
 
           <Typography variant="h2" gutterBottom align="center">
-          Bioreactor
+          <a href="https://en.wikipedia.org/wiki/Algae_bioreactor" target="blank">Bioreactor</a>
           </Typography>
           <img src={bioreactor}  alt="bioreactor" className={classes.images}/>
           <Typography paragraph>      
