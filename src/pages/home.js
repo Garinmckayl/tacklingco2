@@ -147,11 +147,11 @@ export default function HomePage() {
         CO2 Emissions 
         </Typography>
         <Typography paragraph>
-        For hundreds of years, extremely heavy usage of fossil fuels by humans has polluted Earth’s atmosphere with greenhouse gases. 
+        For hundreds of years, extremely <a href="https://www.eia.gov/energyexplained/energy-and-the-environment/where-greenhouse-gases-come-from.php#:~:text=When%20fossil%20fuels%20are%20combusted,which%20we%20use%20for%20energy.&text=For%20example%2C%20for%20the%20same,CO2%20produced%20by%20burning%20coal." target="blank">heavy usage of fossil fuels</a> by humans has polluted Earth’s atmosphere with greenhouse gases. 
         The most commonly emitted greenhouse gas, carbon dioxide, tends to be the primary focus of global warming treatments. 
         Carbon dioxide (CO2) is a colorless gas that is released in great quantities when fossil fuels are burned. 
         When the carbon dioxide concentration goes up, temperature goes up. When the carbon dioxide concentration goes down, temperature goes down.
-        Greenhouse gases trap heat by absorbing infrared radiation that would otherwise leave Earth’s atmosphere. This increases the overall temperature of the earth,
+        Greenhouse gases trap heat by <a href="http://chemistry.elmhurst.edu/vchembook/globalwarmA5.html#:~:text=Greenhouse%20Gases&text=Radiation%20from%20the%20sun%20is,earth%20as%20radiant%20visible%20light.&text=The%20infrared%20radiation%20strikes%20a,this%20absorption%20of%20IR%20radiation." target="blank">absorbing infrared radiation</a> that would otherwise leave Earth’s atmosphere. This increases the overall temperature of the earth,
          which leads to the melting of polar ice caps, rising sea levels, and strengthening of tropical storm systems, among many other tremendous environmental effects.
          ,including worsening natural disasters like floods, heatwaves, and droughts. 
         "In a business-as-usual scenario, where little progress is made in the development and implementation of global climate policies, global greenhouse gas emissions could rise to up to 87 Gt CO2 by 2050, way beyond safe limits,” Achim Steiner, UN Under-Secretary-General and Executive Director of UNEP.
@@ -195,7 +195,7 @@ export default function HomePage() {
         Open-ocean algal blooms (algae-based carbon sequestration) 
         </Typography>
         <Typography>
-        Algae can grow 10–50 times faster than terrestrial plants. The major difference between land plants and algae is the presence/absence of roots, shoots, and leaves that represent sinks for energy. As a result of a faster growth rate, the CO2 removal efficiency of Algae is on average ten times higher than that of terrestrial plants. 
+        Algae <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4978769/#:~:text=Microalgae%20can%20grow%2010%E2%80%9350,than%20terrestrial%20plants%20%5B4%5D.&text=Efficiency%20of%20photosynthesis%20of%20microalgae,lipids%20in%20cells%20%5B8%5D." target="blank">can grow 10–50 times faster than terrestrial plants.</a> The major difference between land plants and algae is the presence/absence of roots, shoots, and leaves that represent sinks for energy. As a result of a faster growth rate, the CO2 removal efficiency of Algae is on average ten times higher than that of terrestrial plants. 
 
         Using Photosynthesis algae remove carbon dioxide from the atmosphere and turn it into biomass and oxygen.
 
